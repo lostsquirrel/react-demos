@@ -2,7 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## improvements 
+<<<<<<< HEAD
 - npx create-react-app react-demos
+=======
+
+>>>>>>> add history
 - Display the location for each move in the format (col, row) in the move history list.
 - Bold the currently selected item in the move list.
 - Rewrite Board to use two loops to make the squares instead of hardcoding them.
