@@ -1,19 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function ActionLink() {
-    function handleClick(e) {
-        e.preventDefault();
-        console.log('The link was clicked.');
+class Toggle extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {isToggleOn: true};
     }
 
-    return (
-        <a href="#" onClick={handleClick}>
-            Click me
-        </a>
-    );
+    handleClick() {
+        this.setState(state => ({
+            isToggleOn: !state.isToggleOn
+        }));
+    }
+
+    render() {
+        return (
+            <button onClick={() => this.handleClick()}>
+                {this.state.isToggleOn ? 'ON' : 'OFF'}
+            </button>
+        );
+    }
 }
+
 ReactDOM.render(
-    <ActionLink />,
+    <Toggle />,
     document.getElementById('root')
 );
