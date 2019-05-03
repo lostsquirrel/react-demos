@@ -1,33 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function UserGreeting(props) {
+    return <h1>Welcome back!</h1>;
+}
 
-class List extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {rows: [1, 2, 3, 4, 5]};
+function GuestGreeting(props) {
+    return <h1>Please sign up.</h1>;
+}
+
+function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    if (isLoggedIn) {
+        return <UserGreeting />;
     }
-
-    deleteRow(id) {
-        console.log('delete row ' + id)
-    };
-    createButton() {
-
-    }
-    render() {
-
-        return (
-            <div>
-                <button onClick={(e) => this.deleteRow(1, e)}>Delete Row</button>
-                <button onClick={this.deleteRow.bind(this, 2)}>Delete Row</button>
-            </div>
-
-
-        )
-    }
+    return <GuestGreeting />;
 }
 
 ReactDOM.render(
-    <List />,
+    // Try changing to isLoggedIn={true}:
+    <Greeting isLoggedIn={true} />,
     document.getElementById('root')
 );
+
