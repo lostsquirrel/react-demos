@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function activateLasers() {
-    console.log('activateLasers....')
-}
+function ActionLink() {
+    function handleClick(e) {
+        e.preventDefault();
+        console.log('The link was clicked.');
+    }
 
-function SimpleButton() {
     return (
-        <button onClick={activateLasers}>
-            Activate Lasers
-        </button>
+        <a href="#" onClick={handleClick}>
+            Click me
+        </a>
     );
 }
 ReactDOM.render(
-    <SimpleButton />,
+    <ActionLink />,
     document.getElementById('root')
 );
