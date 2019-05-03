@@ -1,28 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Toggle extends React.Component {
+
+class List extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isToggleOn: true};
+        this.state = {rows: [1, 2, 3, 4, 5]};
     }
 
-    handleClick = () => {
-        this.setState(state => ({
-            isToggleOn: !state.isToggleOn
-        }));
+    deleteRow(id) {
+        console.log('delete row ' + id)
     };
+    createButton() {
 
+    }
     render() {
+
         return (
-            <button onClick={this.handleClick}>
-                {this.state.isToggleOn ? 'ON' : 'OFF'}
-            </button>
-        );
+            <div>
+                <button onClick={(e) => this.deleteRow(1, e)}>Delete Row</button>
+                <button onClick={this.deleteRow.bind(this, 2)}>Delete Row</button>
+            </div>
+
+
+        )
     }
 }
 
 ReactDOM.render(
-    <Toggle />,
+    <List />,
     document.getElementById('root')
 );
