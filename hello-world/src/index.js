@@ -1,18 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function ListItem(props) {
+    const value = props.value;
+    return (
+        // Wrong! There is no need to specify the key here:
+        <li key={value.toString()}>
+            {value}
+        </li>
+    );
+}
+
 function NumberList(props) {
     const numbers = props.numbers;
     const listItems = numbers.map((number) =>
-        <li>{number}</li>
+        // Wrong! The key should have been specified here:
+        <ListItem value={number} />
     );
     return (
-        <ul>{listItems}</ul>
+        <ul>
+            {listItems}
+        </ul>
     );
 }
 
 const numbers = [1, 2, 3, 4, 5];
 ReactDOM.render(
-    <NumberList numbers={numbers}/>,
+    <NumberList numbers={numbers} />,
     document.getElementById('root')
 );
